@@ -1,0 +1,11 @@
+{
+  "itemGroup.cntmoneyminer.base": "Create NeTask Money Miner",
+  "block.cntmoneyminer.miner": "Miner",
+  "cntmoneyminer.gui.miner.title": "NeTask Miner",
+  "cntmoneyminer.gui.miner.owner": "Owner: ",
+  "cntmoneyminer.gui.miner.mined": "Mined: ",
+  "cntmoneyminer.gui.miner.no_owner": "[no owner]",
+  "cntmoneyminer.gui.miner.claim": "Claim mined",
+  "cntmoneyminer.gui.miner.power_unit": "su",
+  "cntmoneyminer.gui.miner.goggle_title": "Miner Stats:"
+}

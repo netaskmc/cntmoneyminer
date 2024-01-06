@@ -1,4 +1,4 @@
-package com.netask.mlntcandy.cntmoneyminer;
+package com.mlntcandy.netask.cntmoneyminer;
 
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
