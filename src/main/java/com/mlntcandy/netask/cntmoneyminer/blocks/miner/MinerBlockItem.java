@@ -28,13 +28,10 @@ public class MinerBlockItem extends BlockItem {
             return;
         }
 
-        @Nullable Integer suPerRPM = null;
         @Nullable Float suPerKt = null;
         String ownerName = null;
         UUID ownerUUID = null;
 
-        if (tag.get("miner.suPerRPM") != null)
-            suPerRPM = tag.getInt("miner.suPerRPM");
         if (tag.get("miner.suPerKt") != null)
             suPerKt = tag.getFloat("miner.suPerKt");
         if (tag.get("miner.ownerName") != null)
@@ -42,29 +39,24 @@ public class MinerBlockItem extends BlockItem {
         if (tag.get("miner.ownerUUID") != null)
             ownerUUID = tag.getUUID("miner.ownerUUID");
 
-        if (suPerRPM != null)
-            components.add(Lang.Create.number(suPerRPM)
-                    .translate("generic.unit.stress")
-                    .text("/")
-                    .translate("generic.unit.rpm")
-                    .style(ChatFormatting.DARK_GRAY)
-                    .component()
-            );
         if (suPerKt != null)
             components.add(
                     Lang.translate("gui.miner.mined")
                             .style(ChatFormatting.GRAY)
                             .add(Lang.Create.number(suPerKt)
                                     .translate("generic.unit.stress")
-                                    .text("/")
-                                    .translate("generic.unit.kt")
+                                    .text("/kt")
                                     .style(ChatFormatting.GREEN)
                             ).component()
             );
         if (ownerName != null && ownerUUID != null)
             components.add(Lang.translate("gui.miner.owner")
                     .style(ChatFormatting.GRAY)
-                    .add(Lang.text(ownerName).style(ChatFormatting.WHITE)).component()
+                    .add(
+                            (ownerName.equals(MinerBlockEntity.OBF_OWNER_NAME)
+                                    ? Lang.text("Owner").style(ChatFormatting.OBFUSCATED)
+                                    : Lang.text(ownerName)
+                            ).style(ChatFormatting.WHITE)).component()
             );
 
         super.appendHoverText(itemStack, level, components, tooltipFlag);

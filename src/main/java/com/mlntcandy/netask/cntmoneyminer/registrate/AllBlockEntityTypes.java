@@ -11,7 +11,7 @@ public class AllBlockEntityTypes {
     public static final BlockEntityEntry<MinerBlockEntity> MINER = REGISTRATE
             .blockEntity("miner", MinerBlockEntity::new)
             .instance(() -> HalfShaftInstance::new, false)
-            .validBlocks(AllBlocks.MINER)
+            .validBlocks(AllBlocks.MINER, AllBlocks.AUTO_MINER)
             .renderer(() -> MinerRenderer::new)
             .register();
 

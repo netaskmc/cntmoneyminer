@@ -1,0 +1,26 @@
+{
+  "variants": {
+    "facing=down": {
+      "model": "cntmoneyminer:block/auto_miner/block_vertical",
+      "x": 180
+    },
+    "facing=up": {
+      "model": "cntmoneyminer:block/auto_miner/block_vertical"
+    },
+    "facing=north": {
+      "model": "cntmoneyminer:block/auto_miner/block",
+      "y": 180
+    },
+    "facing=south": {
+      "model": "cntmoneyminer:block/auto_miner/block"
+    },
+    "facing=west": {
+      "model": "cntmoneyminer:block/auto_miner/block",
+      "y": 90
+    },
+    "facing=east": {
+      "model": "cntmoneyminer:block/auto_miner/block",
+      "y": 270
+    }
+  }
+}

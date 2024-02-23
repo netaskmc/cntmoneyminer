@@ -1,16 +1,20 @@
 package com.mlntcandy.netask.cntmoneyminer.blocks.miner;
 
+import com.mlntcandy.netask.cntmoneyminer.api.MinerRegistry;
 import com.mlntcandy.netask.cntmoneyminer.registrate.AllBlockEntityTypes;
 import com.mlntcandy.netask.cntmoneyminer.registrate.AllBlocks;
+import com.mlntcandy.netask.cntmoneyminer.registrate.AllItems;
 import com.simibubi.create.content.kinetics.base.DirectionalKineticBlock;
 import com.simibubi.create.foundation.block.IBE;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
@@ -86,15 +90,21 @@ public class MinerBlock extends DirectionalKineticBlock implements IBE<MinerBloc
     @Override
     public @NotNull InteractionResult use(@NotNull BlockState state, @NotNull Level level, @NotNull BlockPos pos, @NotNull Player player, @NotNull InteractionHand hand, @NotNull BlockHitResult hitResult) {
         if (hand != InteractionHand.MAIN_HAND) return InteractionResult.PASS;
-        if (!level.isClientSide()) return InteractionResult.SUCCESS;
-
         MinerBlockEntity be = getBlockEntity(level, pos);
         if (be == null) return InteractionResult.FAIL;
+
+        // check if not hacking device in hand
+        ItemStack stack = player.getItemInHand(hand);
+        Item holdingItem = stack.getItem();
+        if (holdingItem == AllItems.HACK_DEVICE.asItem()) return InteractionResult.PASS;
+        if (holdingItem == com.simibubi.create.AllItems.WRENCH.asItem()) return InteractionResult.PASS;
 
         if (be.isOwner(player))
             be.refreshOwnerName(player);
         else
             be.refreshOwnerName();
+
+        if (!level.isClientSide) return InteractionResult.SUCCESS;
 
         DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () -> {
             Minecraft.getInstance().setScreen(new MinerScreen(pos));
@@ -113,12 +123,13 @@ public class MinerBlock extends DirectionalKineticBlock implements IBE<MinerBloc
             if (!be.hasOwner())
                 be.setOwner((Player) placer);
         }
+        be.setPricePerSuKt(MinerRegistry.getPricePerSuKt());
     }
 
     @Override
     public List<ItemStack> getDrops(BlockState state, LootParams.Builder builder) {
         List<ItemStack> drops = super.getDrops(state, builder);
-        drops.add(AllBlocks.MINER.asStack());
+//        drops.add(AllBlocks.MINER.asStack(1));
 
         BlockEntity be = builder.getOptionalParameter(LootContextParams.BLOCK_ENTITY);
         if (be instanceof MinerBlockEntity miner) {

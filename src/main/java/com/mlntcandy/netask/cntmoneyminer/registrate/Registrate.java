@@ -5,7 +5,6 @@ import com.simibubi.create.foundation.data.CreateRegistrate;
 import net.minecraftforge.eventbus.api.IEventBus;
 
 public class Registrate {
-    // Create a Deferred Register to hold Blocks which will all be registered under the "cNTMoneyMiner" namespace
     public static final CreateRegistrate REGISTRATE = CreateRegistrate.create(CNTMoneyMiner.MODID);
 
     static {
@@ -16,6 +15,7 @@ public class Registrate {
 
         AllBlocks.register();
         AllBlockEntityTypes.register();
+        AllItems.register();
 
         REGISTRATE.registerEventListeners(modEventBus);
     }

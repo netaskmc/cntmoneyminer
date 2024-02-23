@@ -17,9 +17,6 @@ public class AllCreativeModeTabs {
                     .title(Components.translatable("itemGroup.cntmoneyminer.base"))
                     .withTabsBefore(com.simibubi.create.AllCreativeModeTabs.BASE_CREATIVE_TAB.getId())
                     .icon(AllBlocks.MINER::asStack)
-//                    .displayItems((parameters, output) -> output.acceptAll(List.of(
-//                            AllBlocks.MINER.asStack()
-//                    )))
                     .build()
             );
 

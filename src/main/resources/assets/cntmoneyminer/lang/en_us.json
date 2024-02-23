@@ -1,11 +1,21 @@
 {
   "itemGroup.cntmoneyminer.base": "Create NeTask Money Miner",
   "block.cntmoneyminer.miner": "Miner",
+  "block.cntmoneyminer.auto_miner": "Auto Miner",
+  "item.cntmoneyminer.hack_device": "Miner Hack Device",
   "cntmoneyminer.gui.miner.title": "NeTask Miner",
   "cntmoneyminer.gui.miner.owner": "Owner: ",
   "cntmoneyminer.gui.miner.mined": "Mined: ",
   "cntmoneyminer.gui.miner.no_owner": "[no owner]",
-  "cntmoneyminer.gui.miner.claim": "Claim mined",
-  "cntmoneyminer.gui.miner.power_unit": "su",
-  "cntmoneyminer.gui.miner.goggle_title": "Miner Stats:"
+  "cntmoneyminer.gui.miner.no_price": "[no price]",
+  "cntmoneyminer.gui.miner.claim": "Withdraw",
+  "cntmoneyminer.gui.miner.can_claim": "Can withdraw",
+  "cntmoneyminer.gui.miner.can_claim_in": "Withdraw in",
+  "cntmoneyminer.gui.miner.auto_claim_in": "Auto withdraw in",
+  "cntmoneyminer.gui.miner.auto_claim_off_verbose": "Auto withdraw off",
+  "cntmoneyminer.gui.miner.goggle_title": "Miner Stats:",
+  "cntmoneyminer.gui.miner.sec": "s",
+  "cntmoneyminer.gui.miner.auto_claim_off": "Auto (off)",
+  "cntmoneyminer.gui.miner.auto_claim_on": "Auto (on)",
+  "cntmoneyminer.item.hack_device.uses_tooltip": "%d full uses left"
 }

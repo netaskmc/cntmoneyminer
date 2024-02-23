@@ -2,9 +2,9 @@
 	"credit": "Made with Blockbench",
 	"parent": "block/block",
 	"textures": {
-		"5": "cntmoneyminer:block/miner_casing",
-		"6": "cntmoneyminer:block/miner",
-		"particle": "cntmoneyminer:block/miner_casing",
+		"5": "cntmoneyminer:block/auto_miner_casing",
+		"6": "cntmoneyminer:block/auto_miner",
+		"particle": "cntmoneyminer:block/auto_miner_casing",
 		"1_0": "create:block/axis"
 	},
 	"elements": [
